@@ -5,10 +5,16 @@ import javax.swing.*;
 //here we are using JFrame from swing
 //it imports classes of awt
 import java.awt.*;
+import java.awt.event.*;
 
 
-//Our login class is extending JFrame class
-public class Login extends JFrame{
+//Our login class is extending JFrame class and implements ActionListener to give onclick actions to buttons
+public class Login extends JFrame implements ActionListener{
+    
+    //Globle declaration for buttons,textfields,passwordfield
+    JButton login,signUp,clear;
+    JTextField cardTextField;
+    JPasswordField pinTextField;
     
     //this is a login constructor
     Login(){
@@ -49,9 +55,10 @@ public class Login extends JFrame{
         cardNo.setFont(new Font("Arial",Font.BOLD,28));
         add(cardNo);
         
-        //Input section for card no
-        JTextField cardTextField = new JTextField();
+        //Input section for card no 
+        cardTextField = new JTextField();
         cardTextField.setBounds(300,150,230,30);
+        cardTextField.setFont(new Font("Raleway",Font.BOLD,14));
         add(cardTextField);
         
         //Label Pin
@@ -61,38 +68,44 @@ public class Login extends JFrame{
         add(pin);
         
         //Input section for PIN
-        JTextField pinTextField = new JTextField();
+        pinTextField = new JPasswordField();
         pinTextField.setBounds(300,220,230,30);
+        pinTextField.setFont(new Font("Raleway",Font.BOLD,14));
         add(pinTextField);
         
         //JButton's object for login button
-        JButton login = new JButton("SIGN IN");
+        login = new JButton("SIGN IN");
         login.setBounds(300,300,100,30);
         //in mac setOpaque give background color to button
         login.setOpaque(true);
         //Border of the button will be erased
         login.setBorderPainted(false);
-        //background color of button will be BLACK
+        //background color of button will be BLACK and font color white
         login.setBackground(Color.BLACK);
         login.setForeground(Color.WHITE);
+        //ActionListener is added to login button
+        login.addActionListener(this);
+       
         add(login);
         
         //JButton's object for clear button
-        JButton clear = new JButton("CLEAR");
+        clear = new JButton("CLEAR");
         clear.setBounds(430,300,100,30);
         clear.setOpaque(true);
         clear.setBorderPainted(false);
         clear.setBackground(Color.BLACK);
         clear.setForeground(Color.WHITE);
+        clear.addActionListener(this);
         add(clear);
         
         //SignUp Button
-        JButton signUp = new JButton("SIGN UP");
+        signUp = new JButton("SIGN UP");
         signUp.setBounds(300,350,230,30);
         signUp.setOpaque(true);
         signUp.setBorderPainted(false);
         signUp.setBackground(Color.BLACK);
         signUp.setForeground(Color.WHITE);
+        signUp.addActionListener(this);
         add(signUp);
         
         //BackgroundColor of tab
@@ -104,6 +117,24 @@ public class Login extends JFrame{
         setTitle("Automated Teller Machine");//Tab Title
         setLocation(350,200);//Tab Position on Screen (350 from left and 200 from top)
         
+    }
+    
+    //ActionListener is an abstruct class so method inside it should be override as done below
+    public void actionPerformed(ActionEvent ae){
+        //ActionEvent detects clicks and stores info in ae
+        //ae gets access to buttons using getSource()
+        //by if else which button is pressed
+        if(ae.getSource() == clear){
+            //clearing textfield values using setValues
+            cardTextField.setText("");
+            pinTextField.setText("");
+        }
+        else if(ae.getSource() == signUp){
+            
+        }
+        else if(ae.getSource() == login){
+            
+        }
     }
     
     public static void main(String args[]) {
