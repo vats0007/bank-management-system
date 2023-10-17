@@ -35,41 +35,65 @@ public class Login extends JFrame{
         add(label);
         
         //Heading
+        //JLable class is used to make labels
         JLabel text = new JLabel("Welcome to ATM");
+        //text object of JLabal uses setBounds() to place the content on the tab
         text.setBounds(300, 40, 400, 40);
+        //setFonts is used for fonts
         text.setFont(new Font("Osward",Font.BOLD,38));
         add(text);
         
+        //Label Card No
         JLabel cardNo = new JLabel("Card No. :");
         cardNo.setBounds(120, 150, 200, 30);
         cardNo.setFont(new Font("Arial",Font.BOLD,28));
         add(cardNo);
         
+        //Input section for card no
         JTextField cardTextField = new JTextField();
-        cardTextField.setBounds(300,150,250,30);
+        cardTextField.setBounds(300,150,230,30);
         add(cardTextField);
         
+        //Label Pin
         JLabel pin = new JLabel("PIN :");
         pin.setBounds(120, 220, 400, 30);
         pin.setFont(new Font("Arial",Font.BOLD,28));
         add(pin);
         
+        //Input section for PIN
         JTextField pinTextField = new JTextField();
-        pinTextField.setBounds(300,220,250,30);
+        pinTextField.setBounds(300,220,230,30);
         add(pinTextField);
         
+        //JButton's object for login button
         JButton login = new JButton("SIGN IN");
         login.setBounds(300,300,100,30);
-//        login.setBackground(Color.red);
-//        login.setForeground(Color.WHITE);
+        //in mac setOpaque give background color to button
+        login.setOpaque(true);
+        //Border of the button will be erased
+        login.setBorderPainted(false);
+        //background color of button will be BLACK
+        login.setBackground(Color.BLACK);
+        login.setForeground(Color.WHITE);
         add(login);
         
+        //JButton's object for clear button
         JButton clear = new JButton("CLEAR");
         clear.setBounds(430,300,100,30);
-//        clear.setBackground(Color.red);
-//        clear.setForeground(Color.WHITE);
+        clear.setOpaque(true);
+        clear.setBorderPainted(false);
+        clear.setBackground(Color.BLACK);
+        clear.setForeground(Color.WHITE);
         add(clear);
         
+        //SignUp Button
+        JButton signUp = new JButton("SIGN UP");
+        signUp.setBounds(300,350,230,30);
+        signUp.setOpaque(true);
+        signUp.setBorderPainted(false);
+        signUp.setBackground(Color.BLACK);
+        signUp.setForeground(Color.WHITE);
+        add(signUp);
         
         //BackgroundColor of tab
         getContentPane().setBackground(Color.WHITE);
